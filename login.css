@@ -1,0 +1,83 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f9f9f9;
+}
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.login-container h2 {
+    text-align: center;
+    color: #1396c5;
+    margin-bottom: 20px;
+}
+.btn-login {
+    background-color: #1396c5;
+    color: #ffffff;
+    width: 100%;
+    margin-top: 10px;
+}
+.btn-login:hover {
+    background-color: #117ba1;
+    color: #ffffff;
+}
+.form-group {
+    text-align: right;
+    position: relative;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #117ba1;
+    font-weight: bold;
+}
+.form-group .form-control {
+    padding-right: 10px;
+}
+.form-group .form-icon {
+    position: absolute;
+    top: 38px;
+    left: 10px;
+    font-size: 1.2rem;
+    color: #555;
+}
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.checkbox-container label {
+    font-size: 0.9rem;
+    color: #117ba1;
+}
+.forgot-password {
+    font-size: 0.9rem;
+    color: #1396c5;
+    text-decoration: none;
+}
+.forgot-password:hover {
+    text-decoration: none;
+    color: #117ba1;
+}
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+.register-link a {
+    color: #117ba1;
+    text-decoration: none;
+}
+.register-link a:hover {
+    text-decoration: none;
+}
+.alert {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    display: none; /* مخفية بشكل افتراضي */
+}

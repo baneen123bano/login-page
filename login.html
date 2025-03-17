@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - نظام إدارة اللقاحات</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>تسجيل الدخول</h2>
+
+        <!-- إشعارات النظام -->
+        <div class="alert alert-success" id="success-alert">
+            تم تسجيل الدخول بنجاح!
+        </div>
+        <div class="alert alert-danger" id="error-alert">
+            يرجى ملء جميع الحقول.
+        </div>
+        <div class="alert alert-danger" id="invalid-alert">
+            فشل تسجيل الدخول. يرجى التحقق من البيانات والمحاولة مجددًا.
+        </div>
+
+        <form onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="health-id">رقم البطاقة الصحية</label>
+                <i class="fas fa-id-card form-icon"></i>
+                <input type="text" id="health-id" class="form-control" placeholder="أدخل رقم البطاقة الصحية">
+            </div>
+            <div class="form-group">
+                <label for="password">كلمة المرور</label>
+                <i class="fas fa-lock form-icon"></i>
+                <input type="password" id="password" class="form-control" placeholder="أدخل كلمة المرور">
+            </div>
+            <div class="checkbox-container">
+                <div>
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">ذكرني</label>
+                </div>
+                <a href="forget-password.html" class="forgot-password">نسيت كلمة المرور؟</a>
+            </div>
+            <button type="submit" class="btn btn-login">تسجيل الدخول</button>
+        </form>
+        <div class="register-link">
+            <p>لا تمتلك حسابا؟ <a href="signup.html">إنشاء حساب</a></p>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // منع التحديث التلقائي للصفحة
+
+            // الحصول على قيم الحقول
+            const healthId = document.getElementById("health-id").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            // تحقق من ملء جميع الحقول
+            if (!healthId || !password) {
+                showAlert("error-alert");
+                return;
+            }
+
+            // التحقق من صحة البيانات (مثال فقط)
+            if (healthId === "12345" && password === "password") {
+                showAlert("success-alert");
+
+                // تحويل المستخدم إلى صفحة Dashboard بعد 1.5 ثانية
+                setTimeout(() => {
+                    window.location.href = "dashboard.html"; // اسم صفحة الـ Dashboard
+                }, 1500);
+            } else {
+                showAlert("invalid-alert");
+            }
+        }
+
+        function showAlert(alertId) {
+            // إخفاء جميع الإشعارات
+            document.querySelectorAll(".alert").forEach(alert => alert.style.display = "none");
+            // عرض الإشعار المطلوب
+            document.getElementById(alertId).style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
